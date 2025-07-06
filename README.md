@@ -1,31 +1,52 @@
-# Sprint 4 - API Integration with TypeScript
+# 🌱 Sprint 4 - Development Branch: API Integration with TypeScript
 
-This project is part of the IT Academy Bootcamp and focuses on building a simple website using **TypeScript** to **fetch and display data from multiple APIs**.
+This `develop` branch contains the **most up-to-date version** of the Sprint 4 project for the IT Academy Bootcamp.  
+Here, we iteratively build and improve the TypeScript-based application that fetches and displays data from multiple public APIs.
+
+## 🚧 Status
+
+This branch is **under development**. It contains:
+- Work-in-progress implementations
+- Partial testing of modules
+- Incremental commits and updates before merging to `main`
 
 ## 📌 Project Requirements
 
-- Use **TypeScript** to organize and structure the code.
-- Create a single function to **fetch data from multiple APIs**:
-  - A **random joke API**:
+- Use **TypeScript** to organize and structure the codebase.
+- Create a centralized function to **fetch data from multiple APIs**:
+  - **Random Joke APIs**:
     - `https://icanhazdadjoke.com/` (dad jokes)
     - `https://api.chucknorris.io/jokes/random` (Chuck Norris jokes)
-  - A **weather API**:
+  - **Weather API**:
     - `https://wttr.in/?format=3`
-- Display the results in the DOM using plain HTML/CSS.
-- Ensure that the joke returned is **randomly selected** between the two APIs.
-- Use `fetch()` and **modular code** (split into `main.ts`, `api.ts`, `dom.ts`, etc.).
+- Display the fetched data in the DOM using vanilla HTML/CSS.
+- The joke shown should be **randomly selected** from one of the two joke APIs.
+- Implement **modular architecture**: separate logic into files like `main.ts`, `api.ts`, `dom.ts`, etc.
+- Use `fetch()` to make API calls with proper error handling.
 
-## 🧠 Goals
+## 🧠 Development Goals
 
-- Learn how to **set up a TypeScript project from scratch**.
-- Practice **modularization**, **DOM manipulation**, and **API integration**.
-- Understand how to **handle JSON and plain text responses**.
-- Improve **error handling** using `try/catch`.
+- Build a maintainable **TypeScript project from scratch**
+- Apply **modular JavaScript/TypeScript structure**
+- Practice with **API integration** and response formats (JSON / text)
+- Implement **DOM updates** based on fetched data
+- Improve code reliability with `try/catch` and meaningful error messages
 
-## 🛠️ Technologies Used
+## 🔁 Workflow
+
+- Features and updates are committed to this branch.
+- Once stable and tested, the code will be merged into the `main` branch for final delivery.
+
+## 🛠️ Technologies in Use
 
 - TypeScript
 - HTML5 / CSS3
-- JavaScript (compiled from TS)
-- APIs (`icanhazdadjoke`, `chucknorris.io`, `wttr.in`)
+- JavaScript (compiled)
+- Public APIs:  
+  - `icanhazdadjoke.com`  
+  - `chucknorris.io`  
+  - `wttr.in`
 
+---
+
+> 💡 This branch is meant for **development and experimentation**. Final results will be reflected in the `main` branch after merging.
