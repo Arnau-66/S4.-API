@@ -1,52 +1,32 @@
-# 🌱 Sprint 4 - Development Branch: API Integration with TypeScript
+# 🔧 Feature: API Caller
 
-This `develop` branch contains the **most up-to-date version** of the Sprint 4 project for the IT Academy Bootcamp.  
-Here, we iteratively build and improve the TypeScript-based application that fetches and displays data from multiple public APIs.
+This branch contains the core logic for handling **external API requests** in the project. It defines a **unified and reusable asynchronous function** that handles all types of API calls (JSON or plain text) and includes proper error handling.
 
-## 🚧 Status
+## 📌 Purpose of this Feature
 
-This branch is **under development**. It contains:
-- Work-in-progress implementations
-- Partial testing of modules
-- Incremental commits and updates before merging to `main`
+The goal of this branch is to abstract the logic of `fetch()` into a single utility function called `fetchData()`. This keeps the code **modular, readable, and maintainable**, allowing other parts of the application (like `main.ts`) to focus on what to do with the data, not how to retrieve it.
 
-## 📌 Project Requirements
+## 🧠 What does `fetchData()` do?
 
-- Use **TypeScript** to organize and structure the codebase.
-- Create a centralized function to **fetch data from multiple APIs**:
-  - **Random Joke APIs**:
-    - `https://icanhazdadjoke.com/` (dad jokes)
-    - `https://api.chucknorris.io/jokes/random` (Chuck Norris jokes)
-  - **Weather API**:
-    - `https://wttr.in/?format=3`
-- Display the fetched data in the DOM using vanilla HTML/CSS.
-- The joke shown should be **randomly selected** from one of the two joke APIs.
-- Implement **modular architecture**: separate logic into files like `main.ts`, `api.ts`, `dom.ts`, etc.
-- Use `fetch()` to make API calls with proper error handling.
+- Accepts a **URL** and optional **headers**.
+- Makes an asynchronous `fetch()` request.
+- Checks if the response is OK.
+- Automatically detects the content type:
+  - If it's JSON, it parses and returns it.
+  - If it's plain text, it returns it as a string.
+- Throws custom errors if the response is invalid or fails.
 
-## 🧠 Development Goals
+## 🧠 TypeScript Concepts Used
 
-- Build a maintainable **TypeScript project from scratch**
-- Apply **modular JavaScript/TypeScript structure**
-- Practice with **API integration** and response formats (JSON / text)
-- Implement **DOM updates** based on fetched data
-- Improve code reliability with `try/catch` and meaningful error messages
+- `async/await`: to handle asynchronous flow cleanly.
+- `Record<string, string>`: to type HTTP headers as key-value pairs.
+- `Promise<any>`: to indicate that this function returns a promise of any type (either string or object).
+- `export`: to allow modularity and code reuse.
 
-## 🔁 Workflow
+## ✅ Benefits of This Feature
 
-- Features and updates are committed to this branch.
-- Once stable and tested, the code will be merged into the `main` branch for final delivery.
+- Avoids repeating fetch logic everywhere.
+- Makes API handling more robust and secure.
+- Easy to extend or adapt (e.g. add token headers, log errors, etc.).
+- Keeps the `main.ts` logic focused on **UI updates**, not **network logic**.
 
-## 🛠️ Technologies in Use
-
-- TypeScript
-- HTML5 / CSS3
-- JavaScript (compiled)
-- Public APIs:  
-  - `icanhazdadjoke.com`  
-  - `chucknorris.io`  
-  - `wttr.in`
-
----
-
-> 💡 This branch is meant for **development and experimentation**. Final results will be reflected in the `main` branch after merging.
