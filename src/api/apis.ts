@@ -1,6 +1,5 @@
 
 
-
 export const APIs = {
   dadJoke: {
     url: "https://icanhazdadjoke.com/",
