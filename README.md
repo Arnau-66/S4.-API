@@ -32,8 +32,9 @@ sprint4-api-project/
 │   │   └── types.ts             # Interfaces and custom types
 │   └── main.ts                  # Entry point of the application
 ├── dist/                        # Compiled output (JS)
-├── styles/                      # Styling folder (Bootstrap used via CDN)
-│   └── styles.css               # [Optional: custom styles if needed]
+├── styles/                      # Styling folder
+│   ├── bootstrap.min.css        # Bootstrap locally installed via npm and copied
+│   └── styles.css               # Optional: custom styles
 ├── index.html                   # Main HTML layout
 ├── package.json                 # Project dependencies and scripts
 ├── tsconfig.json                # TypeScript compiler configuration
@@ -50,14 +51,14 @@ sprint4-api-project/
 - ✅ Type-safe responses using TypeScript interfaces
 - ✅ Fully modular structure (API, DOM, events, types, logic)
 - ✅ Error handling with `try...catch`
-- ✅ User interface using Bootstrap CDN
+- ✅ User interface using Bootstrap (manually downloaded CSS)
 
 ---
 
 ## 🧰 Technologies Used
 
 - TypeScript
-- HTML / Bootstrap
+- HTML / Bootstrap (local installation)
 - Fetch API
 - Node.js + npm
 
@@ -74,7 +75,7 @@ npx tsc -w             # Enable watch mode for auto-compilation
 
 To stop watch mode: use `Ctrl + C`
 
-Open `index.html` directly in the browser (no need for a local server).
+Open `index.html` directly in the browser or use Live Server.
 
 ---
 
@@ -97,6 +98,11 @@ Once all features are tested and merged into `develop`, the final product is mer
 
 ---
 
+## 📌 Future Improvements
 
-**Note:** This README reflects the final implementation logic from `develop`. All modules are working and compiled under `/dist`, and the `index.html` is linked properly with Bootstrap and JS logic.
+-
+
+---
+
+**Note:** This README reflects the final implementation logic from `develop`. All modules are working and compiled under `/dist`, and the `index.html` is linked properly with locally stored Bootstrap and JS logic.
 
