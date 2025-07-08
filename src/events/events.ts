@@ -1,9 +1,9 @@
 
 
-import { APIs } from "../api/apis";
-import { fetchData } from "../api/fetchData";
-import { updateText } from "../dom/updateDOM";
-import { JokeResponse } from "../types/types";
+import { APIs } from "../api/apis.js";
+import { fetchData } from "../api/fetchData.js";
+import { updateText } from "../dom/updateDOM.js";
+import type { JokeResponse } from "../types/types.js";
 
 export function attachJokeEvent(button: HTMLButtonElement): void {
   button.addEventListener("click", async () => {
