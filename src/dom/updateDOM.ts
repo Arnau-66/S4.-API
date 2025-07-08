@@ -1,7 +1,9 @@
 
 
 export function updateText(id: string, content: string): void {
-  const element = document.getElementById(id);
+
+  let element = document.getElementById(id);
+
   if (element) {
     element.textContent = content;
   } else {
