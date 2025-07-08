@@ -1,86 +1,102 @@
-# 🚧 Development Branch - Sprint 4 API Project
+# 🚧 Develop Branch - Sprint 4 API Project
 
-This branch contains the active development of the Sprint 4 project from IT Academy. The goal is to fetch and display data from multiple APIs using TypeScript in a modular and scalable way.
+This project is part of Sprint 4 of the IT Academy Bootcamp. It consists of creating a web application that fetches data from public APIs using TypeScript, with a modular architecture and development best practices.
 
-## 📌 Exercise Requirements
+---
 
-- Initialize a TypeScript project from scratch.
-- Build a webpage that displays:
-  - A random joke from two APIs:
-    - https://icanhazdadjoke.com/
-    - https://api.chucknorris.io/jokes/random
-  - Weather info from https://wttr.in/?format=3
-- Use a single centralized function for API calls.
-- Structure code modularly using:
-  - `main.ts`
-  - `api.ts`
-  - `dom.ts`
-  - `types.ts`
+## 📌 Exercise Goals
+
+- Set up a project from scratch using TypeScript.
+- Use `fetch` to call multiple public APIs.
+- Modularize the code into separate files (API, DOM, types, events, main logic).
+- Properly type the data returned by each API.
+- Display on screen:
+  - A random joke (from two different APIs).
+  - Current weather information.
+
+---
 
 ## 📁 Folder Structure
 
 ```
-src/
-├── api/
-│   ├── apis.ts          # Stores all API endpoints and headers
-│   └── fetchData.ts     # Generic fetch function
-├── dom/
-│   └── updateDOM.ts     # DOM manipulation functions
-├── types/
-│   └── types.ts         # Interfaces and type declarations
-└── main.ts              # Application logic and event listeners
-
-public/
-├── index.html
-├── styles.css
-└── dist/                # Compiled JS output
+sprint4-api-project/
+├── src/                         # Source code in TypeScript
+│   ├── api/                     # API logic and configuration
+│   │   ├── apis.ts              # URLs, headers, and response types for each API
+│   │   └── fetchData.ts         # Generic function for API calls
+│   ├── dom/                     # DOM manipulation logic
+│   │   └── updateDOM.ts         # Utility to inject content into the HTML
+│   ├── events/                  # Event handlers and button listeners
+│   │   └── events.ts            # Click event functions
+│   ├── types/                   # Data models
+│   │   └── types.ts             # Interfaces and custom types
+│   └── main.ts                  # Entry point of the application
+├── dist/                        # Compiled output (JS)
+├── styles/                      # Styling folder (Bootstrap used via CDN)
+│   └── styles.css               # [Optional: custom styles if needed]
+├── index.html                   # Main HTML layout
+├── package.json                 # Project dependencies and scripts
+├── tsconfig.json                # TypeScript compiler configuration
+└── .gitignore                   # Ignore node_modules and dist
 ```
+
+---
 
 ## ✅ Implemented Features
 
-- ✅ Typed and modularized fetch function.
-- ✅ Dynamic random joke selection from two APIs.
-- ✅ Weather data fetched and displayed.
-- ✅ DOM updated based on response.
-- ✅ Errors handled via try...catch blocks.
-- ✅ Type definitions for consistent response handling.
+- ✅ Generic API caller function using `fetch`
+- ✅ Random joke from either Dad Joke or Chuck Norris APIs
+- ✅ Current weather information from wttr.in
+- ✅ Type-safe responses using TypeScript interfaces
+- ✅ Fully modular structure (API, DOM, events, types, logic)
+- ✅ Error handling with `try...catch`
+- ✅ User interface using Bootstrap CDN
+
+---
 
 ## 🧰 Technologies Used
 
 - TypeScript
-- HTML / CSS
-- Fetch API (vanilla)
+- HTML / Bootstrap
+- Fetch API
 - Node.js + npm
-- `tsconfig.json` for compiler setup
+
+---
 
 ## 🧪 Setup & Compilation
 
 ```bash
-npm init -y
-npm install typescript --save-dev
-npx tsc --init
-
-npx tsc         # Compiles TS to JS
-npx tsc -w      # Watches for changes
+npm install            # Install dependencies (TypeScript)
+npx tsc --init         # Create tsconfig.json (if not done already)
+npx tsc                # Compile TypeScript once
+npx tsc -w             # Enable watch mode for auto-compilation
 ```
 
-## 🔄 Development Flow
+To stop watch mode: use `Ctrl + C`
 
-All features are built in separate `feature/*` branches and merged into `develop` when complete and tested. The `main` branch only receives fully stable releases.
-
-## 📌 TODO
-
-- [ ] Add visual feedback during data fetching
-- [ ] Improve error messages for users
-- [ ] Style the layout with CSS enhancements
-
-## 🔁 Merge Strategy
-
-- `feature/api-caller` → `develop`
-- `feature/dom-handler` → `develop`
-- `feature/types-models` → `develop`
-- `develop` → `main` (final tested product)
+Open `index.html` directly in the browser (no need for a local server).
 
 ---
 
-**This branch is for staging and testing features before production. Do not deploy directly from this branch.**
+## 🔄 Branching Workflow
+
+All features are built in separate `feature/*` branches and merged into `develop` when complete and tested. The `main` branch receives only the final working version.
+
+```
+main → develop → feature/api-caller
+                       ↘ feature/dom-handler
+                       ↘ feature/types-models
+                       ↘ feature/events
+```
+
+---
+
+## 🚀 Deployment
+
+Once all features are tested and merged into `develop`, the final product is merged into `main` for delivery.
+
+---
+
+
+**Note:** This README reflects the final implementation logic from `develop`. All modules are working and compiled under `/dist`, and the `index.html` is linked properly with Bootstrap and JS logic.
+
