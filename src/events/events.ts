@@ -15,9 +15,9 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
 
       updateText("jokeDisplay", joke);
 
-    } catch (err) {
+    } catch (error) {
       updateText("jokeDisplay", "Error loading joke");
-      console.error(err);
+      console.error(error);
     }
   });
 }
@@ -29,10 +29,10 @@ export function attachWeatherEvent(button: HTMLButtonElement): void {
       let weather = await fetchData(APIs.weather.url, APIs.weather.headers, APIs.weather.type);
 
       updateText("weatherDisplay", weather);
-      
-    } catch (err) {
+
+    } catch (error) {
       updateText("weatherDisplay", "Error loading weather");
-      console.error(err);
+      console.error(error);
     }
   });
 }
