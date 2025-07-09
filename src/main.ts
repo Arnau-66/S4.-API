@@ -6,4 +6,3 @@ attachJokeEvent(jokeBtn);
 displayWeatherOnLoad();
 
 (window as any).rateJoke = rateJoke;
-
