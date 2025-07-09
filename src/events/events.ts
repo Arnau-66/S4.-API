@@ -49,7 +49,7 @@ export function displayWeatherOnLoad(): void {
 
       const weatherBox = document.getElementById("weatherInfo");
       if (weatherBox) {
-        weatherBox.innerHTML = `<span>🌤️</span><span>${weather}</span>`;
+        weatherBox.innerHTML = `<span>${weather}</span>`;
       }
     } catch (error) {
       const weatherBox = document.getElementById("weatherInfo");
