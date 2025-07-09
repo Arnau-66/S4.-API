@@ -2,7 +2,11 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
+
 
 
 .btn-primary {
@@ -11,7 +15,6 @@ body {
 }
 
 .weather-box {
-  position: absolute;
   top: 1rem;
   right: 1rem;
   display: flex;
