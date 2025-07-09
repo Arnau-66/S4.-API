@@ -1,44 +1,28 @@
-
-
 import { APIs } from "../api/apis.js";
 import { fetchData } from "../api/fetchData.js";
 import { updateText } from "../dom/updateDOM.js";
-import type { JokeResponse, RatedJoke } from "../types/types.js";
-import { renderRatedJokes } from "../dom/updateDOM.js";
-
-let currentJoke = "";
-const ratedJokes: RatedJoke[] = [];
-
+import { saveJoke } from "../jokes/jokes.js";
+import type { JokeResponse } from "../types/types.js";
 
 export function attachJokeEvent(button: HTMLButtonElement): void {
   button.addEventListener("click", async () => {
     try {
       let randomAPI = Math.random() < 0.5 ? APIs.dadJoke : APIs.chuckNorris;
-      let jokeData: JokeResponse = await fetchData(randomAPI.url, randomAPI.headers, randomAPI.type);
+      let jokeData: JokeResponse = await fetchData(
+        randomAPI.url,
+        randomAPI.headers,
+        randomAPI.type
+      );
+
       let joke = jokeData.joke || jokeData.value || "No joke found";
-
-      currentJoke = joke;
       updateText("jokeDisplay", joke);
-
-      ratedJokes.push({ joke, score: null, date: new Date().toISOString() });
-
+      saveJoke(joke);
     } catch (error) {
       updateText("jokeDisplay", "Error loading joke");
       console.error(error);
     }
   });
 }
-
-export function rateJoke(score: number): void {
-  const lastIndex = ratedJokes.length - 1;
-  if (lastIndex >= 0) {
-    ratedJokes[lastIndex].score = score;
-    console.log("Joke rated:", ratedJokes[lastIndex]);
-
-    renderRatedJokes(ratedJokes);
-  }
-}
-
 
 export function displayWeatherOnLoad(): void {
   window.addEventListener("DOMContentLoaded", async () => {
@@ -63,5 +47,3 @@ export function displayWeatherOnLoad(): void {
     }
   });
 }
-
-

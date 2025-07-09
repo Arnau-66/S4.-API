@@ -1,11 +1,11 @@
 
 
+import { attachJokeEvent, displayWeatherOnLoad } from "./events/index.js";
+import { rateJoke } from "./jokes/index.js";
 
-import { attachJokeEvent, displayWeatherOnLoad, rateJoke } from './events/events.js';
+displayWeatherOnLoad();
 
 const jokeBtn = document.getElementById("loadJoke") as HTMLButtonElement;
-
 attachJokeEvent(jokeBtn);
-displayWeatherOnLoad();
 
 (window as any).rateJoke = rateJoke;
