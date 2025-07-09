@@ -16,10 +16,9 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
       let jokeData: JokeResponse = await fetchData(randomAPI.url, randomAPI.headers, randomAPI.type);
       let joke = jokeData.joke || jokeData.value || "No joke found";
 
-      currentJoke = joke; // Guardamos para poder puntuar luego
+      currentJoke = joke;
       updateText("jokeDisplay", joke);
 
-      // En cuanto se muestre un nuevo chiste, se guarda sin puntuación
       ratedJokes.push({ joke, score: null, date: new Date().toISOString() });
 
     } catch (error) {
