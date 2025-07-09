@@ -6,3 +6,9 @@ export interface JokeResponse {
 }
 
 export type WeatherResponse = string;
+
+export interface RatedJoke {
+  text: string;
+  score: number | null;
+  date: string;
+}
