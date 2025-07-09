@@ -37,7 +37,6 @@ export function rateJoke(score: number): void {
 }
 
 
-
 export function displayWeatherOnLoad(): void {
   window.addEventListener("DOMContentLoaded", async () => {
     try {
@@ -49,7 +48,8 @@ export function displayWeatherOnLoad(): void {
 
       const weatherBox = document.getElementById("weatherInfo");
       if (weatherBox) {
-        weatherBox.innerHTML = `<span>${weather}</span>`;
+        const trimmedWeather = weather.split(": ").pop();
+        weatherBox.innerHTML = `<span class="weather-text">${trimmedWeather}</span>`;
       }
     } catch (error) {
       const weatherBox = document.getElementById("weatherInfo");
