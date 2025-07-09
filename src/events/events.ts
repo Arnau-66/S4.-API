@@ -22,17 +22,27 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
   });
 }
 
-export function attachWeatherEvent(button: HTMLButtonElement): void {
-  button.addEventListener("click", async () => {
-
+export function displayWeatherOnLoad(): void {
+  window.addEventListener("DOMContentLoaded", async () => {
     try {
-      let weather = await fetchData(APIs.weather.url, APIs.weather.headers, APIs.weather.type);
+      const weather = await fetchData(
+        APIs.weather.url,
+        APIs.weather.headers,
+        APIs.weather.type
+      );
 
-      updateText("weatherDisplay", weather);
-
+      const weatherBox = document.getElementById("weatherInfo");
+      if (weatherBox) {
+        weatherBox.innerHTML = `<span>🌤️</span><span>${weather}</span>`;
+      }
     } catch (error) {
-      updateText("weatherDisplay", "Error loading weather");
+      const weatherBox = document.getElementById("weatherInfo");
+      if (weatherBox) {
+        weatherBox.textContent = "Error loading weather";
+      }
       console.error(error);
     }
   });
 }
+
+
