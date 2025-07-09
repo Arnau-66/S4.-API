@@ -8,7 +8,7 @@ export interface JokeResponse {
 export type WeatherResponse = string;
 
 export interface RatedJoke {
-  text: string;
+  joke: string;
   score: number | null;
   date: string;
 }

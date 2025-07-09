@@ -3,10 +3,10 @@
 import { APIs } from "../api/apis.js";
 import { fetchData } from "../api/fetchData.js";
 import { updateText } from "../dom/updateDOM.js";
-import type { JokeResponse } from "../types/types.js";
+import type { JokeResponse, RatedJoke } from "../types/types.js";
 
 let currentJoke = "";
-const ratedJokes: { joke: string; score: number | null; date: string }[] = [];
+const ratedJokes: RatedJoke[] = [];
 
 
 export function attachJokeEvent(button: HTMLButtonElement): void {
