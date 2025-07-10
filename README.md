@@ -1,18 +1,23 @@
-# 🚧 Develop Branch - Sprint 4 API Project
+# 🌐 Sprint 4 - API Project (Develop Branch)
 
-This project is part of Sprint 4 of the IT Academy Bootcamp. It consists of creating a web application that fetches data from public APIs using TypeScript, with a modular architecture and development best practices.
+This project is part of Sprint 4 of the IT Academy Bootcamp. It consists of creating a modular web application using **TypeScript** that fetches data from public APIs and updates the UI accordingly.
 
 ---
 
-## 📌 Exercise Goals
+## 🎯 Project Goals
 
-- Set up a project from scratch using TypeScript.
-- Use `fetch` to call multiple public APIs.
-- Modularize the code into separate files (API, DOM, types, events, main logic).
-- Properly type the data returned by each API.
-- Display on screen:
-  - A random joke (from two different APIs).
-  - Current weather information.
+- Configure a project from scratch using TypeScript.
+- Fetch and handle data from multiple public APIs (weather + jokes).
+- Properly type all data using TypeScript interfaces.
+- Modularize logic into separate folders:
+  - `api/`: API endpoints and fetch logic.
+  - `dom/`: DOM rendering and UI updates.
+  - `events/`: User interactions and event listeners.
+  - `types/`: Custom TypeScript types and interfaces.
+- Display:
+  - A random joke (from two APIs).
+  - Weather forecast based on user's geolocation.
+  - A history list of rated jokes.
 
 ---
 
@@ -20,89 +25,92 @@ This project is part of Sprint 4 of the IT Academy Bootcamp. It consists of crea
 
 ```
 sprint4-api-project/
-├── src/                         # Source code in TypeScript
-│   ├── api/                     # API logic and configuration
-│   │   ├── apis.ts              # URLs, headers, and response types for each API
-│   │   └── fetchData.ts         # Generic function for API calls
-│   ├── dom/                     # DOM manipulation logic
-│   │   └── updateDOM.ts         # Utility to inject content into the HTML
-│   ├── events/                  # Event handlers and button listeners
-│   │   └── events.ts            # Click event functions
-│   ├── types/                   # Data models
-│   │   └── types.ts             # Interfaces and custom types
-│   └── main.ts                  # Entry point of the application
-├── dist/                        # Compiled output (JS)
-├── styles/                      # Styling folder
-│   ├── bootstrap.min.css        # Bootstrap locally installed via npm and copied
-│   └── styles.css               # Optional: custom styles
-├── index.html                   # Main HTML layout
-├── package.json                 # Project dependencies and scripts
-├── tsconfig.json                # TypeScript compiler configuration
-└── .gitignore                   # Ignore node_modules and dist
+├── api/
+│   ├── apis.ts              # API endpoints and metadata
+│   ├── fetchData.ts         # Generic fetch wrapper
+│   └── index.ts             # Barrel file
+├── dom/
+│   ├── updateDOM.ts         # updateText() + renderRatedJokes()
+│   └── index.ts             # Barrel file
+├── events/
+│   ├── events.ts            # attachJokeEvent, rateJoke, displayWeatherOnLoad
+│   └── index.ts             # Barrel file
+├── types/
+│   └── types.ts             # JokeResponse, RatedJoke, Weather types
+├── dist/                    # Output from TypeScript compiler
+├── styles/
+│   ├── bootstrap.min.css    # Bootstrap CSS
+│   └── styles.css           # Custom styles
+├── index.html               # Main HTML page
+├── main.ts                  # Application entry point
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # Project metadata and scripts
 ```
 
 ---
 
 ## ✅ Implemented Features
 
-- ✅ Generic API caller function using `fetch`
-- ✅ Random joke from either Dad Joke or Chuck Norris APIs
-- ✅ Current weather information from wttr.in
-- ✅ Type-safe responses using TypeScript interfaces
-- ✅ Fully modular structure (API, DOM, events, types, logic)
-- ✅ Error handling with `try...catch`
-- ✅ User interface using Bootstrap (manually downloaded CSS)
-
----
-
-## 🧰 Technologies Used
-
-- TypeScript
-- HTML / Bootstrap (local installation)
-- Fetch API
-- Node.js + npm
+- 🔁 Random joke on button click (Dad Joke or Chuck Norris API)
+- ☁️ Displays current weather using [wttr.in](https://wttr.in)
+- 🔢 User can rate each joke (1-3) via buttons
+- 🧾 Display of rated joke history below the current joke
+- 🧱 Modular architecture using barrel files (`index.ts`)
+- 📦 Type-safe API responses via interfaces and types
+- 🚫 Error handling with `try...catch`
+- 🎨 Styling with Bootstrap and Google Fonts
 
 ---
 
 ## 🧪 Setup & Compilation
 
 ```bash
-npm install            # Install dependencies (TypeScript)
-npx tsc --init         # Create tsconfig.json (if not done already)
-npx tsc                # Compile TypeScript once
-npx tsc -w             # Enable watch mode for auto-compilation
+npm install         # Install dependencies
+npx tsc             # Compile TypeScript into /dist
+npx tsc -w          # Watch for changes and recompile automatically
 ```
 
-To stop watch mode: use `Ctrl + C`
-
-Open `index.html` directly in the browser or use Live Server.
+Open `index.html` in a browser or launch with Live Server to test.
 
 ---
 
-## 🔄 Branching Workflow
+## 🌿 Branching Workflow
 
-All features are built in separate `feature/*` branches and merged into `develop` when complete and tested. The `main` branch receives only the final working version.
+Development and features are organized in a clean branching model:
 
 ```
 main → develop → feature/api-caller
-                       ↘ feature/dom-handler
-                       ↘ feature/types-models
-                       ↘ feature/events
+                    ↘ feature/api-caller
+                    ↘ feature/dom-handler
+                    ↘ feature/types
+                    ↘ feature/events
+                    ↘ feature/html
+                    ↘ feature/jokes
+                    ↘ feature/main
+                    ↘ feature/modules
 ```
 
----
-
-## 🚀 Deployment
-
-Once all features are tested and merged into `develop`, the final product is merged into `main` for delivery.
+- All `feature/*` branches are merged into `develop`.
+- `main` contains the final delivery version only.
 
 ---
 
-## 📌 Future Improvements
+## 🧠 Code Highlights
 
--
+- All TypeScript files use clear typing (`type`, `interface`) for safer development.
+- The `events.ts` file contains only event logic, keeping UI updates in `dom/`.
+- Rated jokes are stored in an array and rendered dynamically in a list.
+- Weather info is trimmed to show only emoji and temperature.
 
 ---
 
-**Note:** This README reflects the final implementation logic from `develop`. All modules are working and compiled under `/dist`, and the `index.html` is linked properly with locally stored Bootstrap and JS logic.
+## 🧰 Technologies Used
+
+- TypeScript
+- HTML + Bootstrap (manual download)
+- Fetch API
+- Google Fonts (Montserrat)
+- Node.js + npm
+
+**Note:** This project reflects the `develop` branch, which includes all working features and updated architecture. Use `main` only for clean final deployment.
 
