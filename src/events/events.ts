@@ -8,15 +8,24 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
   button.addEventListener("click", async () => {
     try {
       let randomAPI = Math.random() < 0.5 ? APIs.dadJoke : APIs.chuckNorris;
-      let jokeData: JokeResponse = await fetchData(
+      let data = await fetchData(
         randomAPI.url,
         randomAPI.headers,
         randomAPI.type
       );
 
-      let joke = jokeData.joke || jokeData.value || "No joke found";
-      updateText("jokeDisplay", joke);
-      saveJoke(joke);
+      if (typeof data === "object" && data !== null && ("joke" in data || "value" in data)) {
+
+        const jokeData = data as JokeResponse;
+        const joke = jokeData.joke || jokeData.value || "No joke found";
+
+        updateText("jokeDisplay", joke);
+        saveJoke(joke);
+
+        } else {
+          updateText("jokeDisplay", "Invalid response format");
+        };
+
     } catch (error) {
       updateText("jokeDisplay", "Error loading joke");
       console.error(error);
@@ -34,9 +43,14 @@ export function displayWeatherOnLoad(): void {
       );
 
       const weatherBox = document.getElementById("weatherInfo");
+      
       if (weatherBox) {
-        const trimmedWeather = weather.split(": ").pop();
-        weatherBox.innerHTML = `<span class="weather-text">${trimmedWeather}</span>`;
+        if (typeof weather === "string") {
+          const trimmedWeather = weather.split(": ").pop();
+          weatherBox.innerHTML = `<span class="weather-text">${trimmedWeather}</span>`;
+        } else {
+          weatherBox.textContent = "Unexpected response format";
+        }
       }
     } catch (error) {
       const weatherBox = document.getElementById("weatherInfo");
