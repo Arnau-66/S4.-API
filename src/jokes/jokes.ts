@@ -9,7 +9,7 @@ export function saveJoke(joke: string): void {
   ratedJokes.push({ joke, score: null, date: new Date().toISOString() });
 }
 
-export function rateJoke(score: number): void {
+export function rateJoke(score: 1 | 2 | 3): void {
   const lastIndex = ratedJokes.length - 1;
   if (lastIndex >= 0) {
     ratedJokes[lastIndex].score = score;

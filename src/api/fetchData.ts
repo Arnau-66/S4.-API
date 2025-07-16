@@ -1,10 +1,6 @@
 
 
-export async function fetchData(
-  url: string,
-  headers: Record<string, string> = {},
-  type: 'json' | 'text' = 'json'
-): Promise<unknown> {
+export async function fetchData(url: string, headers: Record<string, string> = {}, type: 'json' | 'text' = 'json'): Promise<unknown> {
 
   let response = await fetch(url, { headers });
 
