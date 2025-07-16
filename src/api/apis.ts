@@ -1,13 +1,13 @@
 
 
-type APIConfig = {
+
+export type APIConfig = {
   url: string;
   headers: Record<string, string>;
   type: "json" | "text";
 };
 
-
-export const APIs: Record<string, APIConfig> = {
+export const APIs: { [key: string]: APIConfig } = {
   dadJoke: {
     url: "https://icanhazdadjoke.com/",
     headers: { Accept: "application/json" },
@@ -24,4 +24,3 @@ export const APIs: Record<string, APIConfig> = {
     type: "text"
   }
 };
-
