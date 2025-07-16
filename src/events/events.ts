@@ -1,5 +1,5 @@
-import { APIs } from "../api/apis.js";
-import { fetchData } from "../api/fetchData.js";
+
+import { APIs, fetchData } from "../api/index.js";
 import { updateText } from "../dom/updateDOM.js";
 import { saveJoke } from "../jokes/jokes.js";
 import type { JokeResponse } from "../types/types.js";

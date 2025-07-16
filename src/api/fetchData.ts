@@ -1,12 +1,18 @@
 
 
-export async function fetchData(url: string, headers: Record<string, string> = {}, type: 'json' | 'text' = 'json'): Promise<unknown> {
 
-  let response = await fetch(url, { headers });
+export async function fetchData<T>(
+  url: string,
+  headers: Record<string, string> = {},
+  type: 'json' | 'text' = 'json'
+): Promise<T> {
+  const response = await fetch(url, { headers });
 
   if (!response.ok) {
     throw new Error(`Fetch failed: ${url}`);
   }
 
-  return type === 'json' ? response.json() : response.text();
+  return type === 'json'
+    ? await response.json()
+    : await response.text() as T;
 }
