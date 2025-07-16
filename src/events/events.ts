@@ -1,6 +1,6 @@
 
 import { APIs, fetchData } from "../api/index.js";
-import { updateText } from "../dom/updateDOM.js";
+import { updateText } from "../dom/index.js";
 import { saveJoke } from "../jokes/jokes.js";
 import type { JokeResponse } from "../types/types.js";
 
