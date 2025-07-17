@@ -41,15 +41,9 @@ export function displayWeatherOnLoad(): void {
 
       const weatherBox = document.getElementById("weatherInfo");
 
-      if (
-        weatherBox &&
-        typeof data === "object" &&
-        data !== null &&
-        "current_condition" in data &&
-        "nearest_area" in data
-      ) {
-        const weather = data as WttrAPIResponse;
+      if (weatherBox && typeof data === "object" && data !== null && "current_condition" in data && "nearest_area" in data) {
 
+        const weather = data as WttrAPIResponse;
         const temp = weather.current_condition[0].temp_C;
         const description = weather.current_condition[0].weatherDesc[0].value;
         const city = weather.nearest_area[0].areaName[0].value;
@@ -60,11 +54,13 @@ export function displayWeatherOnLoad(): void {
             ${city}, ${country} - ${temp}°C, ${description}
           </span>
         `;
+
       } else if (weatherBox) {
         weatherBox.textContent = "Unexpected response format";
       }
     } catch (error) {
       const weatherBox = document.getElementById("weatherInfo");
+      
       if (weatherBox) {
         weatherBox.textContent = "Error loading weather";
       }

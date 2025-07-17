@@ -13,20 +13,24 @@ export function updateText(id: string, content: string): void {
 }
 
 export function renderRatedJokes(ratedJokes: RatedJoke[]): void {
+
   const list = document.getElementById("jokeHistory");
+
   if (list) {
+
     const scoredJokes = ratedJokes.filter(joke => joke.score !== null);
 
-    list.innerHTML = scoredJokes.map(joke =>
-      `<li>${joke.joke} - ⭐ ${joke.score}</li>`
-    ).join('');
+    list.innerHTML = scoredJokes.map(joke =>`<li>${joke.joke} - ⭐ ${joke.score}</li>`).join('');
+
   } else {
     console.warn('Elemento con id "jokeHistory" no encontrado.');
   }
 }
 
 export function updateJokeCounter(count: number): void {
+
   const counter = document.getElementById("jokeCounter");
+  
   if (counter) {
     counter.textContent = count.toString();
   } else {
