@@ -2,7 +2,7 @@
 import { APIs, fetchData } from "../api/index.js";
 import { updateText } from "../dom/index.js";
 import { saveJoke } from "../jokes/jokes.js";
-import type { JokeResponse } from "../types/types.js";
+import type { JokeResponse, WttrAPIResponse } from "../types/types.js";
 
 export function attachJokeEvent(button: HTMLButtonElement): void {
   button.addEventListener("click", async () => {
@@ -33,24 +33,39 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
   });
 }
 
+
 export function displayWeatherOnLoad(): void {
   window.addEventListener("DOMContentLoaded", async () => {
     try {
-      const weather = await fetchData(
+      const data = await fetchData(
         APIs.weather.url,
         APIs.weather.headers,
         APIs.weather.type
       );
 
       const weatherBox = document.getElementById("weatherInfo");
-      
-      if (weatherBox) {
-        if (typeof weather === "string") {
-          const trimmedWeather = weather.split(": ").pop();
-          weatherBox.innerHTML = `<span class="weather-text">${trimmedWeather}</span>`;
-        } else {
-          weatherBox.textContent = "Unexpected response format";
-        }
+
+      if (
+        weatherBox &&
+        typeof data === "object" &&
+        data !== null &&
+        "current_condition" in data &&
+        "nearest_area" in data
+      ) {
+        const weather = data as WttrAPIResponse;
+
+        const temp = weather.current_condition[0].temp_C;
+        const description = weather.current_condition[0].weatherDesc[0].value;
+        const city = weather.nearest_area[0].areaName[0].value;
+        const country = weather.nearest_area[0].country[0].value;
+
+        weatherBox.innerHTML = `
+          <span class="weather-text">
+            ${city}, ${country} - ${temp}°C, ${description}
+          </span>
+        `;
+      } else if (weatherBox) {
+        weatherBox.textContent = "Unexpected response format";
       }
     } catch (error) {
       const weatherBox = document.getElementById("weatherInfo");
@@ -61,3 +76,5 @@ export function displayWeatherOnLoad(): void {
     }
   });
 }
+
+

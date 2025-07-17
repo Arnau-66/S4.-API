@@ -19,8 +19,8 @@ export const APIs: { [key: string]: APIConfig } = {
     type: "json"
   },
   weather: {
-    url: "https://wttr.in/?format=3",
+    url: "https://wttr.in/Barcelona?format=j1",
     headers: {},
-    type: "text"
+    type: "json"
   }
 };
