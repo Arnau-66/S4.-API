@@ -8,16 +8,12 @@ export function attachJokeEvent(button: HTMLButtonElement): void {
   button.addEventListener("click", async () => {
     try {
       let randomAPI = Math.random() < 0.5 ? APIs.dadJoke : APIs.chuckNorris;
-      let data = await fetchData(
-        randomAPI.url,
-        randomAPI.headers,
-        randomAPI.type
-      );
+      let data = await fetchData(randomAPI.url, randomAPI.headers, randomAPI.type);
 
       if (typeof data === "object" && data !== null && ("joke" in data || "value" in data)) {
 
-        const jokeData = data as JokeResponse;
-        const joke = jokeData.joke || jokeData.value || "No joke found";
+        let jokeData = data as JokeResponse;
+        let joke = jokeData.joke || jokeData.value || "No joke found";
 
         updateText("jokeDisplay", joke);
         saveJoke(joke);
