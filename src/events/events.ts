@@ -4,29 +4,35 @@ import { updateText } from "../dom/index.js";
 import { saveJoke } from "../jokes/jokes.js";
 import type { JokeResponse, WttrAPIResponse } from "../types/types.js";
 
-export function attachJokeEvent(button: HTMLButtonElement): void {
-  button.addEventListener("click", async () => {
-    try {
-      let randomAPI = Math.random() < 0.5 ? APIs.dadJoke : APIs.chuckNorris;
-      let data = await fetchData(randomAPI.url, randomAPI.headers, randomAPI.type);
+export async function loadRandomJoke(): Promise<void> {
+  try {
+    const randomAPI = Math.random() < 0.5 ? APIs.dadJoke : APIs.chuckNorris;
+    const data = await fetchData(
+      randomAPI.url,
+      randomAPI.headers,
+      randomAPI.type
+    );
 
-      if (typeof data === "object" && data !== null && ("joke" in data || "value" in data)) {
-
-        let jokeData = data as JokeResponse;
-        let joke = jokeData.joke || jokeData.value || "No joke found";
-
-        updateText("jokeDisplay", joke);
-        saveJoke(joke);
-
-        } else {
-          updateText("jokeDisplay", "Invalid response format");
-        };
-
-    } catch (error) {
-      updateText("jokeDisplay", "Error loading joke");
-      console.error(error);
+    if (
+      typeof data === "object" &&
+      data !== null &&
+      ("joke" in data || "value" in data)
+    ) {
+      const jokeData = data as JokeResponse;
+      const joke = jokeData.joke || jokeData.value || "No joke found";
+      updateText("jokeDisplay", joke);
+      saveJoke(joke);
+    } else {
+      updateText("jokeDisplay", "Invalid response format");
     }
-  });
+  } catch (error) {
+    updateText("jokeDisplay", "Error loading joke");
+    console.error(error);
+  }
+}
+
+export function attachJokeEvent(button: HTMLButtonElement): void {
+  button.addEventListener("click", loadRandomJoke);
 }
 
 
