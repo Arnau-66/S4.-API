@@ -3,6 +3,8 @@ import { APIs, fetchData } from "../api/index.js";
 import { updateText } from "../dom/index.js";
 import { saveJoke } from "../jokes/jokes.js";
 import type { JokeResponse, WttrAPIResponse } from "../types/types.js";
+import { weatherEmojis } from "../utils/weatherEmogiMap.js";
+
 
 export async function loadRandomJoke(): Promise<void> {
   try {
@@ -50,8 +52,11 @@ export function displayWeatherOnLoad(): void {
       if (weatherBox && typeof data === "object" && data !== null && "current_condition" in data && "nearest_area" in data) {
 
         const weather = data as WttrAPIResponse;
+        
         const temp = weather.current_condition[0].temp_C;
-        const description = weather.current_condition[0].weatherDesc[0].value;
+        const rawDescription = weather.current_condition[0].weatherDesc[0].value;
+        const emoji = weatherEmojis[rawDescription] || "🌈";
+        const description = `${emoji} ${rawDescription}`;
         const city = weather.nearest_area[0].areaName[0].value;
         const country = weather.nearest_area[0].country[0].value;
 
