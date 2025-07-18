@@ -84,10 +84,18 @@ main {
   opacity: 0.15;
   z-index: 0;
   position: absolute;
-  top: -100px;
-  left: 50%;
+  top: -150px;
+  left: 55%;
   transform: translateX(-50%);
 }
+
+.main-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4682B4; 
+}
+
 
 
 
