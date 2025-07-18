@@ -56,13 +56,15 @@ export function displayWeatherOnLoad(): void {
         const temp = weather.current_condition[0].temp_C;
         const rawDescription = weather.current_condition[0].weatherDesc[0].value;
         const emoji = weatherEmojis[rawDescription] || "🌈";
-        const description = `${emoji} ${rawDescription}`;
+        const description = `${emoji}`;
         const city = weather.nearest_area[0].areaName[0].value;
         const country = weather.nearest_area[0].country[0].value;
 
         weatherBox.innerHTML = `
           <span class="weather-text">
-            ${city}, ${country} - ${temp}°C, ${description}
+          <br>
+           ${temp}°C, ${description}<br>
+            ${city}, ${country}
           </span>
         `;
 

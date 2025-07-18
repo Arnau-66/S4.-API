@@ -5,6 +5,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
+  position: relative;
 }
 
 
@@ -57,10 +58,22 @@ body {
 .blob-weather {
   width: 200px;
   opacity: 0.2;
-  z-index: 1;
+  top: 10px;
 }
 
-#weatherSection {
-  height: 150px;
+#weatherInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: absolute;
 }
+
+.weather-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5F9EA0; 
+}
+
 
