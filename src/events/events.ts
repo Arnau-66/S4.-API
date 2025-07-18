@@ -61,12 +61,10 @@ export function displayWeatherOnLoad(): void {
         const country = weather.nearest_area[0].country[0].value;
 
         weatherBox.innerHTML = `
-          <span class="weather-text">
-          <br>
-           ${temp}°C, ${description}<br>
-            ${city}, ${country}
-          </span>
+          <p class="weather-text m-0">${temp}°C, ${description}</p>
+          <p class="joke-counter-label m-0">${city}, ${country}</p>
         `;
+
 
       } else if (weatherBox) {
         weatherBox.textContent = "Unexpected response format";

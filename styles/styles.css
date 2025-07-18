@@ -4,6 +4,7 @@ body {
   margin: 0 auto;
   padding: 1rem;
   position: relative;
+  background-color: #f4f6e9;
 }
 
 main {
@@ -25,11 +26,11 @@ main {
 }
 
 .blob-weather {
-  width: 200px;
+  width: 250px;
   opacity: 0.2;
   position: absolute;
-  top: 10px;
-  left: 10%;
+  top: -40px;
+  right: -45px;
   z-index: 0;
 }
 
@@ -40,6 +41,8 @@ main {
   height: 100%;
   position: relative;
   z-index: 2;
+  flex-direction: column; /* 👈 fuerza que los elementos se apilen en vertical */
+  align-items: flex-end;  /* 👈 alinea a la derecha, opcional */
 }
 
 .weather-text {
@@ -169,7 +172,7 @@ main {
 .main-title-img {
   max-width: 100%;
   height: auto;
-  width: 300px;
+  width: 350px;
   margin: 0 auto;
   display: block;
   z-index: 2;
