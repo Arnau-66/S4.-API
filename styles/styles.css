@@ -166,4 +166,15 @@ main {
   top: 10%;
 }
 
+.main-title-img {
+  max-width: 100%;
+  height: auto;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
 
