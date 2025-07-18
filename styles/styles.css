@@ -54,3 +54,13 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.blob-weather {
+  width: 200px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+#weatherSection {
+  height: 150px;
+}
+
