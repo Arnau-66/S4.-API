@@ -1,5 +1,3 @@
-
-
 body {
   font-family: 'Montserrat', sans-serif;
   max-width: 1200px;
@@ -12,25 +10,88 @@ main {
   position: relative;
 }
 
-
 .btn-primary {
   background-color: #004080;
   border-color: #003366;
 }
 
-.weather-box {
-  top: 1rem;
-  right: 1rem;
+#weatherSection {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
+  height: 150px;
+}
+
+.blob-weather {
+  width: 200px;
+  opacity: 0.2;
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  z-index: 0;
+}
+
+#weatherInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .weather-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
+  color: #4682B4;
+}
+
+#counterSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 150px;
+}
+
+.blob-counter {
+  width: 200px;
+  opacity: 0.2;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 0;
+}
+
+.joke-counter-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4682B4;
+  position: relative;
+  left: 30%;
+  z-index: 2;
+}
+
+.blob-main {
+  width: 700px;
+  opacity: 0.15;
+  z-index: -1;
+  position: absolute;
+  top: -150px;
+  left: 55%;
+  transform: translateX(-50%);
+}
+
+.main-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4682B4;
 }
 
 #jokeHistory {
@@ -40,6 +101,20 @@ main {
 
 #historyList li {
   font-size: 0.9rem;
+}
+
+#rating-buttons button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin: 0 0.5rem;
+  transition: transform 0.2s;
+}
+
+#rating-buttons button:hover {
+  transform: scale(1.2);
 }
 
 #ratedJokesHistory {
@@ -58,45 +133,37 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.blob-weather {
-  width: 200px;
-  opacity: 0.2;
-  top: 10px;
-}
-
-#weatherInfo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  position: absolute;
-}
-
-.weather-text {
+.highlighted-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: #4682B4;
 }
 
-.blob-main {
-  width: 700px; 
-  opacity: 0.15;
-  z-index: 0;
-  position: absolute;
-  top: -150px;
-  left: 55%;
-  transform: translateX(-50%);
-}
 
-.main-title {
+.joke-counter-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #4682B4; 
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4682B4;
 }
 
+.joke-counter-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4682B4;
+  line-height: 1;
+}
 
-
+.counter-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  height: 100%;
+  left: 35%;
+  top: 10%;
+}
 
 

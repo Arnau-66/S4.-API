@@ -13,17 +13,31 @@
 
 <body class="bg-light text-dark">
 
-  <section id="weatherSection" class="position-relative mt-1 d-flex justify-content-end align-items-center" style="height: 150px;">
-    <!-- Blob decorativo -->
-    <img src="./assets/png/blob1.png"
-        alt="decorative blob"
-        class="blob-weather position-absolute top-0 end-0" />
+  <div class="position-relative" style="height: 150px;">
 
-    <!-- Texto del clima alineado al centro del blob -->
-    <div id="weatherInfo" class="position-relative text-end z-2 me-4">
-      <!-- Se rellenará con JS -->
-    </div>
-  </section>
+    <section id="counterSection" class="position-absolute top-0 start-0 d-flex align-items-center">
+      <img src="./assets/png/blob3.png"
+          alt="decorative blob"
+          class="blob-counter" />
+      <div class="counter-text-block position-relative z-2 ms-4">
+        <p class="joke-counter-label m-0">Total jokes:</p>
+        <p class="joke-counter-number m-0"><span id="jokeCounter">0</span></p>
+      </div>
+
+
+    </section>
+
+    <section id="weatherSection" class="position-absolute top-0 end-0 d-flex align-items-center">
+      <img src="./assets/png/blob1.png"
+          alt="decorative blob"
+          class="blob-weather" />
+      <div id="weatherInfo" class="position-relative text-end z-2 me-4">
+
+      </div>
+    </section>
+
+  </div>
+
 
   <main class="container py-1 position-relative">
 
@@ -34,11 +48,11 @@
     <h1 class="text-center mb-4 main-title">JOKE GENERATOR</h1>
 
     <div class="d-flex justify-content-center gap-3 mb-5">
-      <button id="loadJoke" class="btn btn-primary">🎭 Random Joke</button>
+      <button id="loadJoke" class="btn btn-primary">Get a new joke</button>
     </div>
 
     <section class="text-center">
-      <h2 class="h4">Joke</h2>
+
       <p id="jokeDisplay" class="border p-3 rounded bg-white shadow-sm"></p>
       
       <div id="rating-buttons">
@@ -47,13 +61,12 @@
         <button onclick="rateJoke(3)">😂 3</button>
       </div>
 
-      <p>Total de chistes generados: <span id="jokeCounter">0</span></p>
-
-      
     <section id="jokeHistory" class="mt-5">
-      <h2 class="h5 text-center mb-3">📋 Joke History</h2>
+      <h2 class="h5 text-center mb-3 highlighted-title">📋 Joke History</h2>
       <ul class="list-group" id="historyList"></ul>
     </section>
+
+      
     
   </main>
 

@@ -14,7 +14,8 @@ export function updateText(id: string, content: string): void {
 
 export function renderRatedJokes(ratedJokes: RatedJoke[]): void {
 
-  const list = document.getElementById("jokeHistory");
+  const list = document.getElementById("historyList");
+
 
   if (list) {
 

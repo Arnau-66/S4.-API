@@ -11,6 +11,7 @@ export function saveJoke(joke: string): void {
   ratedJokes.push({ joke, score: null, date: new Date().toISOString() });
 
   updateJokeCounter(ratedJokes.length);
+  console.log("Rated jokes array:", ratedJokes);
 }
 
 export function rateJoke(score: 1 | 2 | 3): void {
