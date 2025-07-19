@@ -15,12 +15,12 @@ export const APIs: { [key: string]: APIConfig } = {
   },
   chuckNorris: {
     url: "https://api.chucknorris.io/jokes/random",
-    headers: {},
+    headers: {Accept: "application/json"},
     type: "json"
   },
   weather: {
     url: "https://wttr.in/Barcelona?format=j1",
-    headers: {},
+    headers: { Accept: "application/json" },
     type: "json"
   }
 };

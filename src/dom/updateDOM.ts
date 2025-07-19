@@ -16,7 +16,6 @@ export function renderRatedJokes(ratedJokes: RatedJoke[]): void {
 
   const list = document.getElementById("historyList");
 
-
   if (list) {
 
     const scoredJokes = ratedJokes.filter(joke => joke.score !== null);

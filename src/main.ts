@@ -12,8 +12,10 @@ attachJokeEvent(jokeBtn);
 
 document.addEventListener("DOMContentLoaded", () => {
   const jokeButton = document.getElementById("loadJoke") as HTMLButtonElement;
+
   if (jokeButton) attachJokeEvent(jokeButton);
 
   displayWeatherOnLoad();
   loadRandomJoke();
+  
 });
